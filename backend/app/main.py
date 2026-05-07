@@ -4,7 +4,9 @@ import joblib
 import numpy as np
 import os
 app = FastAPI()
+
 # Load model and columns
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 model_path = os.path.join(BASE_DIR, "..", "model", "churn_model.pkl")

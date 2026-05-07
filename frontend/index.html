@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Predictor</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Customer Churn Predictor</h1>
+
+        <p class="subtitle">
+            Predict customer churn probability using Machine Learning
+        </p>
+
+        <form id="predictionForm">
+
+            <input type="number" id="tenure" placeholder="Tenure (Months)" required>
+
+            <input type="number" id="MonthlyCharges" placeholder="Monthly Charges" required>
+
+            <input type="number" id="TotalCharges" placeholder="Total Charges" required>
+
+            <select id="SeniorCitizen">
+                <option value="0">Not Senior Citizen</option>
+                <option value="1">Senior Citizen</option>
+            </select>
+
+            <select id="Partner_Yes">
+                <option value="0">No Partner</option>
+                <option value="1">Has Partner</option>
+            </select>
+
+            <select id="Dependents_Yes">
+                <option value="0">No Dependents</option>
+                <option value="1">Has Dependents</option>
+            </select>
+
+            <select id="OnlineSecurity_Yes">
+                <option value="0">No Online Security</option>
+                <option value="1">Has Online Security</option>
+            </select>
+
+            <select id="TechSupport_Yes">
+                <option value="0">No Tech Support</option>
+                <option value="1">Has Tech Support</option>
+            </select>
+
+            <select id="Contract_One year">
+                <option value="0">Not One Year Contract</option>
+                <option value="1">One Year Contract</option>
+            </select>
+
+            <select id="Contract_Two year">
+                <option value="0">Not Two Year Contract</option>
+                <option value="1">Two Year Contract</option>
+            </select>
+
+            <select id="InternetService_Fiber optic">
+                <option value="0">No Fiber Optic</option>
+                <option value="1">Fiber Optic</option>
+            </select>
+
+            <select id="PaymentMethod_Electronic check">
+                <option value="0">Other Payment Method</option>
+                <option value="1">Electronic Check</option>
+            </select>
+
+            <button type="submit">
+                Predict Churn
+            </button>
+
+        </form>
+
+        <div id="result"></div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

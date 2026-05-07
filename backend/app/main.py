@@ -2,12 +2,18 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import numpy as np
-
+import os
 app = FastAPI()
 
 # Load model and columns
-model = joblib.load("../model/churn_model.pkl")
-columns = joblib.load("../model/columns.pkl")
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(BASE_DIR, "..", "model", "churn_model.pkl")
+columns_path = os.path.join(BASE_DIR, "..", "model", "columns.pkl")
+
+model = joblib.load(model_path)
+columns = joblib.load(columns_path)
 
 # Enable CORS
 app.add_middleware(

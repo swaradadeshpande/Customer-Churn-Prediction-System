@@ -99,3 +99,208 @@ Customer-Churn-Prediction-System/
 │   ├── script.js
 │
 └── README.md
+
+# ⚙️ Installation and Setup
+
+## 1. Clone Repository
+
+```bash
+git clone <your-repository-link>
+```
+
+---
+
+## 2. Navigate to Project Directory
+
+```bash
+cd Customer-Churn-Prediction-System
+```
+
+---
+
+# 🔧 Backend Setup
+
+## 3. Install Dependencies
+
+```bash
+cd backend
+
+pip install -r requirements.txt
+```
+
+---
+
+# 🧪 Train Machine Learning Model
+
+## 4. Navigate to Model Folder
+
+```bash
+cd model
+```
+
+---
+
+## 5. Run Model Training Script
+
+```bash
+python train_model.py
+```
+
+After successful execution:
+
+- `churn_model.pkl`
+- `columns.pkl`
+
+will be generated automatically.
+
+---
+
+# 🚀 Run FastAPI Backend
+
+## 6. Navigate Back
+
+```bash
+cd ..
+```
+
+---
+
+## 7. Start Backend Server
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Backend will run at:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+# 🌐 Run Frontend
+
+Open the following file in browser:
+
+```text
+frontend/index.html
+```
+
+---
+
+# 📌 API Endpoint
+
+## Predict Customer Churn
+
+### Endpoint
+
+```text
+POST /predict
+```
+
+---
+
+## Sample Input
+
+```json
+{
+  "tenure": 2,
+  "MonthlyCharges": 95,
+  "TotalCharges": 180,
+  "SeniorCitizen": 0,
+  "Partner_Yes": 0,
+  "Dependents_Yes": 0,
+  "OnlineSecurity_Yes": 0,
+  "TechSupport_Yes": 0,
+  "Contract_One year": 0,
+  "Contract_Two year": 0,
+  "InternetService_Fiber optic": 1,
+  "PaymentMethod_Electronic check": 1
+}
+```
+
+---
+
+## Sample Output
+
+```json
+{
+  "prediction": 1,
+  "probability": 78.45,
+  "message": "Customer likely to churn"
+}
+```
+
+---
+
+# 📊 Features Used for Prediction
+
+- Tenure
+- Monthly Charges
+- Total Charges
+- Senior Citizen
+- Partner
+- Dependents
+- Online Security
+- Tech Support
+- Contract Type
+- Internet Service Type
+- Payment Method
+
+---
+
+# 🎯 Learning Outcomes
+
+This project demonstrates:
+
+- Data preprocessing
+- Feature engineering
+- Machine Learning model training
+- Classification algorithms
+- Model evaluation metrics
+- REST API development
+- Frontend-backend integration
+- Full-stack ML deployment
+
+---
+
+# 🚀 Future Enhancements
+
+- User authentication
+- Database integration
+- Prediction history tracking
+- Interactive dashboard charts
+- Cloud deployment
+- Admin analytics panel
+- Email alerts for churn-risk customers
+- AI chatbot support
+
+---
+
+# 🏢 Real-World Applications
+
+- Telecom Companies
+- SaaS Platforms
+- OTT Services
+- Banking Systems
+- Subscription-based Businesses
+
+---
+
+# 📚 Dataset
+
+Dataset Used:  
+Telco Customer Churn Dataset
+
+Source:  
+https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+
+---
+
+# 👨‍💻 Author
+
+Swarada Deshpande
+
+---
+

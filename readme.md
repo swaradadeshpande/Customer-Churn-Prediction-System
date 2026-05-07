@@ -6,17 +6,6 @@ This project uses Machine Learning with XGBoost, FastAPI backend, and a responsi
 
 ---
 
-# 🚀 Features
-
-- Customer churn prediction using Machine Learning
-- Real-time prediction with probability score
-- FastAPI backend API
-- Responsive and modern frontend UI
-- XGBoost classification model
-- Data preprocessing and feature engineering
-- REST API integration
-- Full-stack architecture
-- Beginner-friendly and resume-worthy project
 
 ---
 

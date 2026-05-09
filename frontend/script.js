@@ -1,13 +1,9 @@
-
 const form = document.getElementById("predictionForm");
 const resultDiv = document.getElementById("result");
 
 form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
-
-    resultDiv.style.display = "block";
-    resultDiv.innerHTML = "Analyzing customer data...";
 
     const data = {
         tenure: Number(document.getElementById("tenure").value),
@@ -24,16 +20,27 @@ form.addEventListener("submit", async (e) => {
         "PaymentMethod_Electronic check": Number(document.getElementById("PaymentMethod_Electronic check").value)
     };
 
+    resultDiv.innerHTML = `
+        <div style="
+            padding:25px;
+            border-radius:20px;
+            background:rgba(255,255,255,0.08);
+            text-align:center;
+        ">
+            Analyzing Customer Data...
+        </div>
+    `;
+
     try {
 
         const response = await fetch(
             "http://127.0.0.1:8000/predict",
             {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
                 },
-                body: JSON.stringify(data)
+                body:JSON.stringify(data)
             }
         );
 
@@ -41,31 +48,47 @@ form.addEventListener("submit", async (e) => {
 
         const isRisk = result.prediction === 1;
 
-        resultDiv.className = isRisk
-            ? "result-risk"
-            : "result-safe";
-
         resultDiv.innerHTML = `
-            <div class="result-title">
-                ${result.message}
-            </div>
+            <div style="
+                padding:35px;
+                border-radius:24px;
+                text-align:center;
+                background:${isRisk
+                    ? 'rgba(239,68,68,0.15)'
+                    : 'rgba(34,197,94,0.15)'};
+                border:1px solid ${isRisk
+                    ? 'rgba(239,68,68,0.4)'
+                    : 'rgba(34,197,94,0.4)'};
+            ">
 
-            <div class="result-probability">
-                Churn Probability: <strong>${result.probability}%</strong>
+                <div style="font-size:60px;margin-bottom:20px;">
+                    ${isRisk
+                        ? '<i class="bi bi-exclamation-triangle-fill"></i>'
+                        : '<i class="bi bi-check-circle-fill"></i>'}
+                </div>
+
+                <h2 style="margin-bottom:15px;">
+                    ${result.message}
+                </h2>
+
+                <p style="font-size:20px;color:#cbd5e1;">
+                    Churn Probability:
+                    <strong>${result.probability}%</strong>
+                </p>
+
             </div>
         `;
 
-    } catch (error) {
-
-        resultDiv.className = "result-risk";
+    } catch(error){
 
         resultDiv.innerHTML = `
-            <div class="result-title">
-                Server Error
-            </div>
-
-            <div class="result-probability">
-                Make sure FastAPI backend is running.
+            <div style="
+                padding:30px;
+                border-radius:20px;
+                background:rgba(239,68,68,0.15);
+                text-align:center;
+            ">
+                Backend Server Not Running
             </div>
         `;
     }

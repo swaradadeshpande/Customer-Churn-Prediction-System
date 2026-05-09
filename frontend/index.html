@@ -7,6 +7,11 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -16,140 +21,225 @@
 
 <div class="background"></div>
 
-<div class="container">
+<div class="main-container">
 
-    <div class="left-panel">
+    <!-- Sidebar -->
 
-        <h1>ChurnSense Analytics</h1>
+    <aside class="sidebar">
 
-        <p>
-            AI-powered customer churn prediction system designed to identify customers at high risk of leaving.
-        </p>
-
-        <div class="stats">
-            <div class="stat-card">
-                <h2>79%</h2>
-                <span>Model Accuracy</span>
+        <div class="logo-section">
+            <div class="logo-circle">
+                <i class="bi bi-graph-up-arrow"></i>
             </div>
 
-            <div class="stat-card">
-                <h2>ML</h2>
-                <span>XGBoost Model</span>
-            </div>
+            <h2>ChurnSense</h2>
         </div>
 
-    </div>
+        <div class="menu">
 
-    <div class="right-panel">
+            <div class="menu-item active">
+                <i class="bi bi-speedometer2"></i>
+                <span>Dashboard</span>
+            </div>
 
-        <div class="form-card">
+            <div class="menu-item">
+                <i class="bi bi-people"></i>
+                <span>Customers</span>
+            </div>
 
-            <h2>Predict Customer Churn</h2>
+            <div class="menu-item">
+                <i class="bi bi-bar-chart"></i>
+                <span>Analytics</span>
+            </div>
 
-            <form id="predictionForm">
+            <div class="menu-item">
+                <i class="bi bi-cpu"></i>
+                <span>ML Model</span>
+            </div>
 
-                <div class="input-grid">
+        </div>
 
-                    <div class="input-group">
-                        <label>Tenure (Months)</label>
-                        <input type="number" id="tenure" required>
-                    </div>
+    </aside>
 
-                    <div class="input-group">
-                        <label>Monthly Charges</label>
-                        <input type="number" id="MonthlyCharges" required>
-                    </div>
+    <!-- Main Content -->
 
-                    <div class="input-group">
-                        <label>Total Charges</label>
-                        <input type="number" id="TotalCharges" required>
-                    </div>
+    <main class="content">
 
-                    <div class="input-group">
-                        <label>Senior Citizen</label>
-                        <select id="SeniorCitizen">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
+        <div class="top-section">
 
-                    <div class="input-group">
-                        <label>Partner</label>
-                        <select id="Partner_Yes">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
+            <div>
+                <h1>Customer Churn Prediction</h1>
+                <p>AI-powered retention analytics dashboard</p>
+            </div>
 
-                    <div class="input-group">
-                        <label>Dependents</label>
-                        <select id="Dependents_Yes">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
+            <div class="profile-card">
+                <i class="bi bi-person-circle"></i>
+                <span>Admin</span>
+            </div>
 
-                    <div class="input-group">
-                        <label>Online Security</label>
-                        <select id="OnlineSecurity_Yes">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
+        </div>
 
-                    <div class="input-group">
-                        <label>Tech Support</label>
-                        <select id="TechSupport_Yes">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
+        <!-- Stats Cards -->
 
-                    <div class="input-group">
-                        <label>One Year Contract</label>
-                        <select id="Contract_One year">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
+        <div class="stats-grid">
 
-                    <div class="input-group">
-                        <label>Two Year Contract</label>
-                        <select id="Contract_Two year">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Fiber Optic</label>
-                        <select id="InternetService_Fiber optic">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Electronic Check</label>
-                        <select id="PaymentMethod_Electronic check">
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </div>
-
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="bi bi-graph-up"></i>
                 </div>
 
-                <button type="submit">
-                    Predict Churn
-                </button>
+                <div>
+                    <h2>79%</h2>
+                    <p>Model Accuracy</p>
+                </div>
+            </div>
 
-            </form>
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="bi bi-cpu"></i>
+                </div>
 
-            <div id="result"></div>
+                <div>
+                    <h2>XGBoost</h2>
+                    <p>ML Algorithm</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="bi bi-lightning-charge"></i>
+                </div>
+
+                <div>
+                    <h2>FastAPI</h2>
+                    <p>Backend API</p>
+                </div>
+            </div>
 
         </div>
 
-    </div>
+        <!-- Main Grid -->
+
+        <div class="dashboard-grid">
+
+            <!-- Prediction Form -->
+
+            <div class="form-card glass-card">
+
+                <div class="card-header">
+                    <h2>
+                        <i class="bi bi-magic"></i>
+                        Predict Churn
+                    </h2>
+                </div>
+
+                <form id="predictionForm">
+
+                    <div class="input-grid">
+
+                        <div class="input-group">
+                            <label>Tenure</label>
+                            <input type="number" id="tenure" placeholder="Months" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Monthly Charges</label>
+                            <input type="number" id="MonthlyCharges" placeholder="$" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Total Charges</label>
+                            <input type="number" id="TotalCharges" placeholder="$" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Senior Citizen</label>
+                            <select id="SeniorCitizen">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Partner</label>
+                            <select id="Partner_Yes">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Dependents</label>
+                            <select id="Dependents_Yes">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Online Security</label>
+                            <select id="OnlineSecurity_Yes">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Tech Support</label>
+                            <select id="TechSupport_Yes">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>One Year Contract</label>
+                            <select id="Contract_One year">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Two Year Contract</label>
+                            <select id="Contract_Two year">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Fiber Optic</label>
+                            <select id="InternetService_Fiber optic">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Electronic Check</label>
+                            <select id="PaymentMethod_Electronic check">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="predict-btn">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        Predict Churn Risk
+                    </button>
+
+                </form>
+
+                <div id="result"></div>
+
+            </div>
+
+        </div>
+
+    </main>
 
 </div>
 

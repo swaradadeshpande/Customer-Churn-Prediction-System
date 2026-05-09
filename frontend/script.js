@@ -1,8 +1,13 @@
+
 const form = document.getElementById("predictionForm");
+const resultDiv = document.getElementById("result");
 
 form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
+
+    resultDiv.style.display = "block";
+    resultDiv.innerHTML = "Analyzing customer data...";
 
     const data = {
         tenure: Number(document.getElementById("tenure").value),
@@ -19,21 +24,49 @@ form.addEventListener("submit", async (e) => {
         "PaymentMethod_Electronic check": Number(document.getElementById("PaymentMethod_Electronic check").value)
     };
 
-    const response = await fetch(
-        "http://127.0.0.1:8000/predict",
-        {
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify(data)
-        }
-    );
+    try {
 
-    const result = await response.json();
+        const response = await fetch(
+            "http://127.0.0.1:8000/predict",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }
+        );
 
-    document.getElementById("result").innerHTML = `
-        ${result.message}<br><br>
-        Churn Probability: ${result.probability}%
-    `;
+        const result = await response.json();
+
+        const isRisk = result.prediction === 1;
+
+        resultDiv.className = isRisk
+            ? "result-risk"
+            : "result-safe";
+
+        resultDiv.innerHTML = `
+            <div class="result-title">
+                ${result.message}
+            </div>
+
+            <div class="result-probability">
+                Churn Probability: <strong>${result.probability}%</strong>
+            </div>
+        `;
+
+    } catch (error) {
+
+        resultDiv.className = "result-risk";
+
+        resultDiv.innerHTML = `
+            <div class="result-title">
+                Server Error
+            </div>
+
+            <div class="result-probability">
+                Make sure FastAPI backend is running.
+            </div>
+        `;
+    }
 });
